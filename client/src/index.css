@@ -60,9 +60,22 @@ body {
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
+  cursor: pointer;
 }
 .save-button:hover {
   background-color: green;
+  color: white;
+}
+.edit-button {
+  position: absolute;
+  top: 25px;
+  right: 100px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.edit-button:hover{
+  background-color: black;
   color: white;
 }
 
@@ -75,3 +88,52 @@ body {
   color: red;
   text-align: center;
 }
+
+/* Styles for Edit */
+.edit-wrapper{
+  width: 75%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.back-button{
+  cursor: pointer;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  width: 70px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-wrapper form{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.edit-wrapper form label{
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.edit-wrapper form input{
+  height: 30px;
+  font-size: 15px;
+}
+
+.edit-submit{
+  margin: 30px auto;
+  border: none;
+  background-color: seagreen;
+  color: white;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+}
+
+
+
