@@ -43,8 +43,7 @@ function EditMovie({ handleEditCount }){
 
         const id = match.params.id;
         axios.put(`http://localhost:5000/api/movies/${id}`, newValue)
-        .then(res => {
-            console.log(res);
+        .then(() => {
             handleEditCount();
             history.push(`/movies/${id}`);
         })
@@ -54,36 +53,36 @@ function EditMovie({ handleEditCount }){
     }
 
     return(
-        <div className='edit-wrapper'>
+        <div className='form-wrapper'>
             <div className='back-button' onClick={goBack}>Go Back</div>
             {newValue && (
                 <form onSubmit={handleSubmit}>
-                <label>Title</label>
-                <input
-                    name='title'
-                    value={newValue.title}
-                    onChange={handleChange}
-                />
-                <label>Director</label>
-                <input
-                    name='director'
-                    value={newValue.director}
-                    onChange={handleChange}
-                />
-                <label>Metascore</label>
-                <input
-                    name='metascore'
-                    value={newValue.metascore}
-                    onChange={handleChange}
-                />
-                <label>Stars</label>
-                <input
-                    name='stars'
-                    value={newValue.stars}
-                    onChange={handleChange}
-                />
-                <input type='submit' value='Submit Changes' className='edit-submit'/>
-            </form>
+                    <label>Title</label>
+                    <input
+                        name='title'
+                        value={newValue.title}
+                        onChange={handleChange}
+                    />
+                    <label>Director</label>
+                    <input
+                        name='director'
+                        value={newValue.director}
+                        onChange={handleChange}
+                    />
+                    <label>Metascore</label>
+                    <input
+                        name='metascore'
+                        value={newValue.metascore}
+                        onChange={handleChange}
+                    />
+                    <label>Stars</label>
+                    <input
+                        name='stars'
+                        value={newValue.stars}
+                        onChange={handleChange}
+                    />
+                    <input type='submit' value='Submit Changes' className='form-submit'/>
+                </form>
             )}
         </div>
     );

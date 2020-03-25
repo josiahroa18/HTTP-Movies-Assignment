@@ -26,8 +26,7 @@ function Movie({ addToSavedList, decreaseMovieCount }) {
   const deleteMovie = () => {
     const id = match.params.id;
     axios.delete(`http://localhost:5000/api/movies/${id}`)
-    .then(res => {
-      console.log(res);
+    .then(() => {
       decreaseMovieCount();
       history.push(`/`);
     })

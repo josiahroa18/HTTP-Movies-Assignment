@@ -105,7 +105,7 @@ body {
 }
 
 /* Styles for Edit */
-.edit-wrapper{
+.form-wrapper{
   width: 75%;
   margin: 0 auto;
   padding: 1rem;
@@ -123,24 +123,24 @@ body {
   margin-bottom: 20px;
 }
 
-.edit-wrapper form{
+.form-wrapper form{
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
 }
 
-.edit-wrapper form label{
+.form-wrapper form label{
   font-size: 20px;
   margin: 10px 0;
 }
 
-.edit-wrapper form input{
+.form-wrapper form input{
   height: 30px;
   font-size: 15px;
 }
 
-.edit-submit{
+.form-submit{
   margin: 30px auto;
   border: none;
   background-color: seagreen;
@@ -150,8 +150,23 @@ body {
   text-align: center;
 }
 
-.edit-submit:hover{
+.form-submit:hover{
   background-color: green;
+}
+
+/* Styles for add */
+.add-movie{
+  margin: 10px auto;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+}
+
+.add-movie:hover{
+  background-color: black;
+  color: white;
 }
 
 
