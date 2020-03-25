@@ -46,11 +46,11 @@ function EditMovie({ handleEditCount }){
         .then(res => {
             console.log(res);
             handleEditCount();
+            history.push(`/movies/${id}`);
         })
         .catch(err => {
             console.log(err);
         })
-        history.push(`/movies/${id}`);
     }
 
     return(
