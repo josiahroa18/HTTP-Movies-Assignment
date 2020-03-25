@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-function EditMovie(){
-    const [ newValue, setNewValue ] = useState({})
+function EditMovie({ handleEditCount }){
+    const [ newValue, setNewValue ] = useState(null)
     const match = useRouteMatch();
     const history = useHistory();
 
@@ -11,7 +11,10 @@ function EditMovie(){
         const id = match.params.id;
         axios.get(`http://localhost:5000/api/movies/${id}`)
         .then(res => {
-            console.log(res.data);
+            res.data = {
+                ...res.data,
+                stars: res.data.stars.toString()
+            }
             setNewValue(res.data)
         })
         .catch(err => {
@@ -33,8 +36,21 @@ function EditMovie(){
 
     const handleSubmit = e => {
         e.preventDefault();
+
+        // Re-format object
         newValue.metascore = newValue.metascore * 1;
-        console.log(newValue);
+        newValue.stars = newValue.stars.split(',');
+
+        const id = match.params.id;
+        axios.put(`http://localhost:5000/api/movies/${id}`, newValue)
+        .then(res => {
+            console.log(res);
+            handleEditCount();
+        })
+        .catch(err => {
+            console.log(err);
+        })
+        history.push(`/movies/${id}`);
     }
 
     return(
@@ -63,7 +79,8 @@ function EditMovie(){
                 <label>Stars</label>
                 <input
                     name='stars'
-                    
+                    value={newValue.stars}
+                    onChange={handleChange}
                 />
                 <input type='submit' value='Submit Changes' className='edit-submit'/>
             </form>
